@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>生物识记(made by 吴正准)</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <div class="container">
+ <h1 class="page-title">生物识记</h1>
+ <p class="author">made by 吴正准</p>
+ <div class="controls">
+ <select id="outlineSelect">
+ <option value="grade1">高一期末提纲</option>
+ <option value="grade2">高二期末提纲</option>
+ <option value="grade3">高三期末提纲</option>
+ <option value="diagrams">图形填空提纲</option>
+ <option value="respiration">呼吸光合专题提纲</option>
+ <option value="all">全部提纲</option>
+ </select>
+ <button id="randomCard">随机抽查</button>
+ <button id="sequentialCard">按序抽查</button>
+ <button class="toggle-answers" onclick="toggleAnswers(event)">答案</button>
+ <div class="font-size-controls main-font-controls">
+ <button class="font-btn" onclick="changeMainFontSize('decrease')" title="减小字号">A-</button>
+ <button class="font-btn" onclick="changeMainFontSize('reset')" title="重置字号">A</button>
+ <button class="font-btn" onclick="changeMainFontSize('increase')" title="增大字号">A+</button>
+ </div>
+ </div>
+ <div id="content"></div>
+ <div id="modal" class="modal">
+ <div class="modal-content">
+ <div class="modal-tools">
+ <div class="font-size-controls">
+ <button class="font-btn" onclick="changeFontSize('decrease')" title="减小字号">A-</button>
+ <button class="font-btn" onclick="changeFontSize('reset')" title="重置字号">A</button>
+ <button class="font-btn" onclick="changeFontSize('increase')" title="增大字号">A+</button>
+ </div>
+ <div class="progress-container">
+ <div class="progress-bar" id="progressBar">
+ <div class="progress-thumb" id="progressThumb"></div>
+ </div>
+ </div>
+ <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+ <button class="close-btn" onclick="document.getElementById('modal').style.display='none'">&times;</button>
+ </div>
+ <div id="cardContent"></div>
+ </div>
+ </div>
+ </div>
+ <div id="donate-trigger">
+ ❤️ 打赏支持
+ </div>
+ <div class="overlay" id="overlay"></div>
+ <div class="donate-panel" id="donate-panel">
+ <div class="donate-content">
+ <div class="motivation-text">
+ 🌟 <strong>感谢使用本工具!</strong><br>
+ • 您的每一份支持都将转化为:<br>
+ •❤️ 服务器续费<br>
+ •🛠️ 持续开发维护<br>
+ •☕ 深夜码农的咖啡燃料<br>
+ •👶 宝宝最爱的芦浦炒米
+ </div>
+ <div class="donate-header">
+ <svg viewBox="0 0 24 24" width="20" height="20" fill="#ff4daf">
+ <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+ </svg>
+ 支持开发者
+ <span class="sparkle">✨</span>
+ </div>
+ <div class="qr-grid">
+ <div class="qr-item">
+ <p>微信扫码支持</p>
+ <img src="https://static-mp-841244f4-3ad3-40fc-a1fc-d5359b23444f.next.bspapp.com/money-pic/WeChat.jpg" alt="微信赞赏码">
+ <div class="qr-tips">
+ <p>❤️持续创作需要您的支持</p>
+ <p class="qr-proverb">星火相聚,终成光芒</p>
+ </div>
+ </div>
+ <div class="qr-item">
+ <p>支付宝扫码支持</p>
+ <img src="https://static-mp-841244f4-3ad3-40fc-a1fc-d5359b23444f.next.bspapp.com/money-pic/alipay.jpg" alt="支付宝收款码">
+ <div class="qr-tips">
+ <p>🌸每一份心意都值得珍惜</p>
+ <p class="qr-proverb">不啻微芒,造矩成阳</p>
+ </div>
+ </div>
+ </div>
+ <div class="donate-header">
+ <svg viewBox="0 0 24 24" width="20" height="20" fill="#ff4daf">
+ <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+ </svg>
+ 感谢您的支持!
+ <span class="sparkle">✨</span>
+ </div>
+ <div class="close-section">
+ <div class="close-text">感谢开发者,已支持~</div>
+ </div>
+ </div>
+ </div>
+ <script src="script.js"></script>
+</body>
+</html>
